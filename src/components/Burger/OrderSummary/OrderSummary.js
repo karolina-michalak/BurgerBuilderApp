@@ -2,8 +2,8 @@ import React from 'react';
 import ReactAux from '../../../hoc/ReactAux'
 
 const OrderSummary = props => {
-    const ingredientSummary = Object.keys(props.ingredientSummary).map(el => {
-        return (<li><span style={{textTransform: 'uppercase'}}>{el}</span>: {props.ingredients[el]}</li>)
+    const ingredientSummary = Object.keys(props.ingredients).map(el => {
+        return (<li key={el}><span style={{textTransform: 'capitalize'}}>{el}</span>: {props.ingredients[el]}</li>)
     })
     return (
         <ReactAux>
@@ -12,7 +12,7 @@ const OrderSummary = props => {
             <ul>
                 {ingredientSummary}
             </ul>
-            <p>continue to checkout</p>
+            <p>continue to checkout?</p>
         </ReactAux>
     )
 
