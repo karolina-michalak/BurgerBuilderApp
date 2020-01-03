@@ -1,10 +1,8 @@
+import React from 'react';
+import style from './Backdrop.module.css'
 
-import React from 'react'
-
-const Modal = props => (
-    <div>
-        {props.children}
-    </div>
+const Backdrop = props => (
+    props.show ? <div className={style.Backdrop}></div> : null
 )
 
-export default Modal
+export default Backdrop
