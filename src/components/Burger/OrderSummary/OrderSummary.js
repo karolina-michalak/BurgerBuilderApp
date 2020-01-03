@@ -12,7 +12,9 @@ const OrderSummary = props => {
             <ul>
                 {ingredientSummary}
             </ul>
-            <p>continue to checkout?</p>
+            <p>Continue to checkout?</p>
+            <button>CANCEL</button>
+            <button>CONTINUE</button>
         </ReactAux>
     )
 
