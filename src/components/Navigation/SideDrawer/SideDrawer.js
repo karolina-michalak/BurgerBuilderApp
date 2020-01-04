@@ -8,7 +8,7 @@ import ReactAux from '../../../hoc/ReactAux'
 const SideDrawer = props => {
     return(
         <ReactAux>
-            <Backdrop/>
+            <Backdrop show={props.open} clicked={props.closed}/>
             <div className={style.SideDrawer}>
                 <div className={style.Logo}>
                     <Logo/>
