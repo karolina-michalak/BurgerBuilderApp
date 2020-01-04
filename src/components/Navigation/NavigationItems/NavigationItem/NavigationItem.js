@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import style from './NavigationItem.module.css'
+
 
 const NavigationItem = props => (
-    
-        <li><a href='/'>link</a></li>
+        <li className={style.NavigationItem}>
+            <a href='/'>link</a>
+        </li>
     
 )
 

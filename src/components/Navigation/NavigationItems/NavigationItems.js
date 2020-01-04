@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
+import style from './NavigationItems.module.css'
 
 const NavigationItems = () => (
-    <ul>
-        <li><a href='/'>link</a></li>
+    <ul className={style.NavigationItems}>
     </ul>
 )
 
