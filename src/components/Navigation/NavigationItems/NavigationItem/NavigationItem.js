@@ -4,7 +4,11 @@ import style from './NavigationItem.module.css'
 
 const NavigationItem = props => (
         <li className={style.NavigationItem}>
-            <a href='/'>link</a>
+            <a 
+                href={props.link}
+                className={props.active ? style.active : null}
+                >
+                {props.children}</a>
         </li>
     
 )
