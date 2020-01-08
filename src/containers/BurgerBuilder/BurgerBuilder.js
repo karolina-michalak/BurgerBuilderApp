@@ -140,29 +140,44 @@ class BurgerBuilder extends Component{
         for(let key in disabledInfo){
             disabledInfo[key] = disabledInfo[key] <= 0
         }
-        let orderSummary = <OrderSummary 
-        ingredients={this.state.ingredients} 
-        purchaseCancelled={this.purchaseCancelHandler} 
-        purchaseContinued={this.purchaseContinue}
-        price={this.state.totalPrice}
-    />
+        let orderSummary = null;
+
+    
+        let burger = <Spinner/>
+
+        if(this.state.ingredients){
+            burger =   (
+                <ReactAux>
+                    <Burger ingredients={this.state.ingredients}/>
+                    <BuildControls 
+                        ingredientRemoved={this.removeIngredient} 
+                        ingredientAdded={this.addIngredient}
+                        disabled={disabledInfo}
+                        purchaseable={this.state.purchaseable}
+                        price={this.state.totalPrice}
+                        ordered={this.purchaseHandler}
+                        />
+                    </ReactAux>
+                )
+                orderSummary = <OrderSummary 
+                ingredients={this.state.ingredients} 
+                purchaseCancelled={this.purchaseCancelHandler} 
+                purchaseContinued={this.purchaseContinue}
+                price={this.state.totalPrice}
+                    />
+        }
+
         if(this.state.loading){
             orderSummary = <Spinner/>
         }
+   
+
         return(
             <ReactAux>
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
                   {orderSummary}
                 </Modal>
-                <Burger ingredients={this.state.ingredients}/>
-                <BuildControls 
-                    ingredientRemoved={this.removeIngredient} 
-                    ingredientAdded={this.addIngredient}
-                    disabled={disabledInfo}
-                    purchaseable={this.state.purchaseable}
-                    price={this.state.totalPrice}
-                    ordered={this.purchaseHandler}
-                    />
+                {burger}
             </ReactAux>
         )
     }
