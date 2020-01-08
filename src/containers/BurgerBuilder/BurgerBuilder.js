@@ -30,6 +30,10 @@ class BurgerBuilder extends Component{
         loading: false
     }
 
+    componentDidMount(){
+        axios.get('https://burger-app-fb92b.firebaseio.com/ingredients.json')
+    }
+
     updatePurchase(ingredients){
         const sum = Object.keys(ingredients).map(el => {
             return ingredients[el]
